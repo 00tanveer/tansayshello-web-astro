@@ -1,0 +1,102 @@
+---
+
+---
+
+<div>
+	<p class='typewriter-text'></p>
+</div>
+
+<style>
+	div {
+		background-color: white;
+		transition: background-color 0.2s ease;
+	}
+	div .typewriter-text {
+		display: inline-block;
+		border-right: 2px solid #fff;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	html.dark div {
+		background-color: var(--secondaryDark);
+	}
+
+	@keyframes typing {
+		from {
+			width: 0;
+		}
+		to {
+			width: 100%;
+		}
+	}
+
+	@keyframes blink-caret {
+		from,
+		to {
+			border-color: transparent;
+		}
+		50% {
+			border-color: #fff;
+		}
+	}
+	@media (min-width: 720px) {
+		div {
+			height: 10px;
+			background-color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 30px;
+		}
+		div * {
+			margin: 0;
+		}
+	}
+</style>
+<script>
+	const textArray: string[] = [
+		'"I love creating businesses, writing code and making friends."',
+		'"I aspire to be a master of people."',
+		'"Getting there..."',
+		'"Slowly"',
+		'"Are you still reading?"',
+		'"If you are, then"',
+		'"I assume I have your attention."',
+		'"I actually have a company named Attention. Check it out on /initiatives."',
+		'"I pretend to be smart on /blog."',
+		'"Some philosophy here on /princinples"',
+		'"And if you\'re a wantrepreneur, go to /ideas."',
+	];
+
+	let textIndex = 0;
+	let charIndex = 0;
+	const typewriterText: HTMLElement | null =
+		document.querySelector('.typewriter-text');
+
+	function type() {
+		if (charIndex < textArray[textIndex]!.length) {
+			typewriterText!.textContent += textArray[textIndex]!.charAt(charIndex);
+			charIndex++;
+			setTimeout(type, 40);
+		} else {
+			setTimeout(erase, 1000);
+		}
+	}
+
+	function erase() {
+		if (charIndex > 0) {
+			typewriterText!.textContent = textArray[textIndex]!.substring(
+				0,
+				charIndex - 1
+			);
+			charIndex--;
+			setTimeout(erase, 20);
+		} else {
+			textIndex = (textIndex + 1) % textArray.length;
+			setTimeout(type, 300);
+		}
+	}
+
+	setTimeout(type, 200);
+</script>

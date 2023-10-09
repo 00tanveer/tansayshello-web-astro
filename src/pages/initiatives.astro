@@ -1,0 +1,39 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const title = 'TanSaysHello - Stuff I did';
+const description = 'I failed mostly.';
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<BaseHead
+			title={title}
+			description={description}
+		/>
+	</head>
+	<body>
+		<Header title={title} />
+		<main>
+			<h1>Current Initiatives 🤞</h1>
+			<ol>
+				<li>Attention Network -</li>
+				<li>WiserGates -</li>
+				<li>Qreate</li>
+			</ol>
+			<br />
+			<img
+				src='/egg.png'
+				style='height: 100px'
+				alt='cracked-egg'
+				height='100px'
+			/>
+			<ol>
+				<li>Porate Chai -</li>
+			</ol>
+		</main>
+		<Footer />
+	</body>
+</html>
