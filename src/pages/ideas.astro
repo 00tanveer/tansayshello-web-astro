@@ -1,0 +1,76 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const title = 'TanSaysHello - Stupid Ideas';
+const description = 'I honestly think these are billion dollar ideas.';
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<BaseHead
+			title={title}
+			description={description}
+		/>
+	</head>
+	<body>
+		<Header title={title} />
+		<main>
+			<h1 style='margin-top: 180px;'>Ideas 🤞</h1>
+			<ol>
+				<li>
+					<a
+						target='_blank'
+						href='https://theattention.network'
+						>Attention Network</a
+					> - A venture created to serve as a community to creators of all kind.
+					I am the co-founder and current CEO. (Site must be down right now.
+					Work in progress.)
+				</li>
+				<li>
+					<a
+						href='https://wisergates.com'
+						target='_blank'
+						>WiserGates</a
+					> - A wealth management and education company created to boost equity
+					investments and improve financial wellness of all people. I am an
+					Associate Partner. I look after strategy, media and engineering.
+				</li>
+				<li>
+					<a
+						href='https://qreate.design'
+						target='_blank'
+						>Qreate</a
+					> - A performance branding agency created to make the branding the top
+					business objective in any organization. I am an advisor.
+				</li>
+			</ol>
+			<br />
+			<img
+				src='/egg.png'
+				style='height: 80px'
+				alt='cracked-egg'
+				height='80px'
+			/>
+			<ol>
+				<li>
+					Porate Chai - It was a matchmaking platform to connect students and
+					tutors in seconds instead of days. We for a problem that didn't exist.
+					Pivoting got too hard later.
+				</li>
+				<li>
+					GPS Bangla - An offshore oftware development team created to make
+					custom software solution for UK clients and Bangladesh. It shut down
+					in 2020.
+				</li>
+				<li>
+					Bae Innovations - A bespoke software development company that created
+					MVPs for entrepreneurs in Europe and North America. It shut down in
+					2021.
+				</li>
+			</ol>
+		</main>
+		<Footer />
+	</body>
+</html>
