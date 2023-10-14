@@ -1,0 +1,20 @@
+---
+const { title } = Astro.props;
+---
+
+<style>
+	button {
+		font-size: 25px;
+		padding: 5px 30px;
+		background-color: var(--textColor);
+		border: 1px solid var(--secondaryDark);
+		border-radius: 5px;
+		box-shadow: 5px 5px;
+	}
+	button:hover {
+		cursor: pointer;
+		background-color: var(--secondaryDark);
+		transform: translate(-3px, -3px);
+	}
+</style>
+<button>{title} <slot /></button>
