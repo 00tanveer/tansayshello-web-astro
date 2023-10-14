@@ -12,4 +12,12 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const ideas = defineCollection({
+  schema: z.object({
+    stage: z.string(),
+    description: z.string(),
+    ideas: z.array(z.string()),
+  })
+})
+
+export const collections = { blog, ideas };

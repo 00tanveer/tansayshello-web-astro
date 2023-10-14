@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import Button from '../components/Button.astro';
+import { ViewTransitions } from 'astro:transitions';
+
+type Props = CollectionEntry<'ideas'>['data'];
+
+const { stage, description } = Astro.props;
+const ideas = await getCollection('ideas');
+
+// console.log('ideas ', ideas);
+---
+
+<html lang='en'>
+	<head>
+		<BaseHead
+			title={`+ ${stage} ${description} `}
+			description={description}
+		/>
+		<style>
+			.view-panel {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+				gap: 20px;
+			}
+			.panel {
+				padding-top: 50px;
+			}
+		</style></head
+	>
+
+	<body>
+		<Header title={description} />
+		<ViewTransitions />
+		<main>
+			<div class='view-panel'>
+				<a href={`/ideas/${ideas[2]?.slug}`}><Button title='🐛' /></a>
+				<a href={`/ideas/${ideas[1]?.slug}`}
+					><Button>
+						<img
+							src='/cocoon.png'
+							style='width: 27px'
+						/>
+					</Button></a
+				>
+				<a href={`/ideas/${ideas[0]?.slug}`}><Button title='🦋' /></a>
+			</div>
+			<div class='panel'>
+				<div><slot /></div>
+				<div></div>
+				<div></div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

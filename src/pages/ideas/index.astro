@@ -1,10 +1,14 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Button from '../components/Button.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Button from '../../components/Button.astro';
+import { getCollection } from 'astro:content';
 const title = 'TanSaysHello - Stupid Ideas';
 const description = 'I honestly think these are billion dollar ideas.';
+
+const ideas = await getCollection('ideas');
+// console.log('ideas ', ideas);
 ---
 
 <style>
@@ -35,11 +39,16 @@ const description = 'I honestly think these are billion dollar ideas.';
 				junkie.)
 			</p>
 			<div class='view-panel'>
-				<Button title='🐛' />
-				<Button>
-					<img src='/cocoon.png' />
-				</Button>
-				<Button title='🦋' />
+				<a href={`/ideas/${ideas[2].slug}`}><Button title='🐛' /></a>
+				<a href={`/ideas/${ideas[1].slug}`}
+					><Button>
+						<img
+							src='/cocoon.png'
+							style='width: 27px'
+						/>
+					</Button></a
+				>
+				<a href={`/ideas/${ideas[0].slug}`}><Button title='🦋' /></a>
 			</div>
 			<div class='panel'>
 				<div></div>

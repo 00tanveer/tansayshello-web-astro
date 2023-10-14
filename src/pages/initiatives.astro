@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
 const title = 'TanSaysHello - Stuff I did';
 const description = 'I failed mostly.';
 ---
@@ -16,6 +17,7 @@ const description = 'I failed mostly.';
 	</head>
 	<body>
 		<Header title={title} />
+		<!-- <ViewTransitions /> -->
 		<main>
 			<h1 style='margin-top: 50px;'>Current Initiatives 🤞</h1>
 			<ol>
